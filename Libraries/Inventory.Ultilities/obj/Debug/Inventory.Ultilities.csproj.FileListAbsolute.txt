@@ -1,0 +1,12 @@
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\bin\Debug\Inventory.Ultilities.dll
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\bin\Debug\Inventory.Ultilities.pdb
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.csproj.CoreCompileInputs.cache
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.dll
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.pdb
+H:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.csprojResolveAssemblyReference.cache
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\bin\Debug\Inventory.Ultilities.dll
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\bin\Debug\Inventory.Ultilities.pdb
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.csprojResolveAssemblyReference.cache
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.csproj.CoreCompileInputs.cache
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.dll
+S:\KhoPitechBack\inventory\Libraries\Inventory.Ultilities\obj\Debug\Inventory.Ultilities.pdb

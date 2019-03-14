@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+        <nb-card-header>Tạo phiếu ghi công nợ</nb-card-header>
+        <nb-card-body>
+                <toaster-container [toasterconfig]="config"></toaster-container>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" (change)="selectWarehouseHandler($event)">
+                        <option>--Danh sách kho--</option>
+                        <option *ngFor="let i of warehouseList" value= {{i.Id}}>
+                            {{i.Name}}
+                        </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="number" placeholder="Giá tiền" class="form-control" [(ngModel)]="model.Total" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control" (change)="selectPaymentTypeHandler($event)">
+                        <option>--Hình thức thanh toán--</option>
+                        <option *ngFor="let i of paymenttypeList" value= {{i.Id}}>
+                        {{i.Name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Ghi chú phiếu công nợ" class="form-control" [(ngModel)]="model.Noted"></textarea>
+                    </div>
+                </div>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-hero-success" (click)="addDebtNote()">Tạo phiếu</button>
+                </div>
+                </div>
+        </nb-card-footer>
+        </nb-card>
+    </div>
+   
+  </div>
+  

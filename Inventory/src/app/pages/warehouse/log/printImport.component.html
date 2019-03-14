@@ -1,0 +1,158 @@
+<style>
+    @media print{
+        @page {
+            -webkit-print-color-adjust:exact;   
+        }
+        body{
+            -webkit-print-color-adjust:exact;
+        }
+        .table{
+            width: 1000px !important;
+        }
+        .table tr{
+            background-color: #404040;
+            color: white;
+        }
+    }
+    </style>
+      <div class="modal-header">
+        <span>{{ modalHeader }}</span>
+        <button class="close" aria-label="Close" (click)="closeDetail()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div id="printNote">
+      
+        <div class="modal-body">
+            <header>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                                <th><img src="../../../../assets/images/logo.png" ></th>
+                                <th style="text-align: center"><h1>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                PHIẾU NHẬP KHO</h1></th>
+                            </tr>
+                        </table>
+                        
+                        <div class="form-group">
+                        <hr>
+                        </div>
+                    </div>
+                    
+                </div>
+            </header>
+            <body>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                                <td style="font-size: 16px"><b>CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI PISTORE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                                <td  style="text-align: right">Date:</td>
+                                <td  style=" text-align: right">{{this.list.CreatedDate | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                            <tr>
+                                <td >Tầng 5, Tòa nhà HGH - 94 Nguyễn Du, Phường 7, Quận Gò Vấp, TP.HCM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td style="text-align: right">Hotline:</td>
+                                <td style="text-align: right">1900 633 430</td>
+                            </tr>
+                        </table>
+                        <hr>
+                        <table>
+                            <tr>
+                                <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 </td>
+                                <td style="text-align: right">&nbsp;&nbsp;&nbsp;&nbsp;Code:</td>
+                                <td style="text-align: right ; color: red !important;"><b>&nbsp;&nbsp;{{this.list.Code}}</b></td>
+                            </tr>
+                        </table>
+                    </div>
+                   
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                                <td >Người giao hàng :</td>
+                                <td>{{this.list.SourceWarehouse}}</td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ :</td>
+                                <td>{{this.warehouseList1.Address}}</td>
+                            </tr>
+                            <tr>
+                                <td>Số điện thoại :</td>
+                                <td>{{this.warehouseList1.PhoneNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td>Loại hàng :</td>
+                                <td>{{(this.list.ProductType == 'New')?'Hàng mới':'Hàng bảo hành'}}</td>
+                            </tr>
+                            <tr>
+                                <td>Xuất tại kho :</td>
+                                <td></td>
+                            </tr>
+                                    
+                        </table>
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <div class="detail-note">
+                            <table style="width:100% !important"  class="mainTable">
+                                <thead>
+                                    <tr id="mainHeader" style="background-color: #404040 !important; color: white !important">
+                                        <th style="border-right: solid 1px white;font-size: 16px !important;text-align:center !important ;padding-right: 10px !important;padding-left: 10px !important; padding: 5px !important">STT</th>
+                                        <th style="border-right: solid 1px white;font-size: 16px !important;text-align:center !important;padding-right: 10px !important;padding-left: 10px !important; padding: 5px !important">TÊN SẢN PHẨM</th>
+                                        <th style="border-right: solid 1px white;font-size: 16px !important;text-align:center !important ;padding-right: 10px !important;padding-left: 10px !important; padding: 5px !important">ĐƠN VỊ TÍNH</th>
+                                        <th style="border-right: solid 1px white;font-size: 16px !important;text-align:center !important ;padding-right: 10px !important;padding-left: 10px !important; padding: 5px !important">SỐ LƯỢNG</th>
+                                        <th style="border-right: solid 1px white;font-size: 16px !important;text-align:center !important ;padding-right: 10px !important;padding-left: 10px !important; padding: 5px !important">GHI CHÚ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of listDetail; index as i">
+                                        <td  style="text-align:center !important;border-bottom: 1px solid #ddd;">{{i+1}}</td>
+                                        <td style="text-align:left !important;border-bottom: 1px solid #ddd;">&nbsp;&nbsp;{{item.ProductName}}</td>
+                                        <td style="text-align:center !important;border-bottom: 1px solid #ddd;">{{item.Unit}}</td>
+                                        <td style="text-align:center !important;border-bottom: 1px solid #ddd;">{{item.Quantity}} </td>
+                                        <td style="text-align:center !important;border-bottom: 1px solid #ddd;">{{item.Noted}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                            <br/><br/>
+                            * Lưu ý : Vui lòng kiểm tra đúng số lượng ghi trên phiếu trước khi kỹ xác nhận.<br/>
+                    </div>
+                    <div class="col-md-12">
+                            <table  style="width:100% !important">
+                                <tr>
+                                    <td>NGƯỜI GIAO HÀNG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>NGƯỜI NHẬN HÀNG</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ký, họ tên)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ký, họ tên)</td>
+                                </tr>
+                            </table>
+                       
+                    </div>
+                </div>
+            </body>
+        </div>
+    </div>
+    <div class="modal-footer">
+            <button class="btn btn-md btn-primary" (click)="closeDetail()">Done</button>
+            <button class="btn btn-md btn-primary" (click)="PrintNote('printNote')">In Phiếu</button>
+        </div>

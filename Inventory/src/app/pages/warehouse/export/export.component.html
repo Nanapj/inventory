@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-md-6">
+        <nb-card>
+        <nb-card-header>Tạo phiếu xuất kho</nb-card-header>
+        <nb-card-body>
+        <toaster-container [toasterconfig]="config"></toaster-container>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="form-control" (change)="selectWarehouseHandler($event)" [(ngModel)]= "warehouseSelect">
+                        <option value="0">--Kho--</option>
+                        <option *ngFor="let i of warehouseList" value= {{i.Id}}>
+                            {{i.Name}}
+                        </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <textarea rows="4" placeholder="Ghi chú phiếu nhập" class="form-control" [(ngModel)]="model.Noted"></textarea>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="form-control" (change)="selectProductHandler($event)" [(ngModel)]= "productSelect">
+                                <option value="0">--Sản phẩm--</option>
+                                <option *ngFor="let i of productList" value= {{i.Id}}>
+                                    {{i.ProductName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="row full-name-inputs">
+                                <div class="col-sm-6 input-group">
+                                    <input type="number" placeholder="Số lượng" class="form-control" [(ngModel)]="detail.Quantity"/>
+                                </div>
+                                <div class="col-sm-6 input-group">
+                                    <input type="number" placeholder="Đơn giá" class="form-control" [(ngModel)]="detail.Price" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-hero-success" (click)="addDetail()">Thêm</button>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)" [source]="render"></ng2-smart-table>
+                </div>
+                <div class="form-group">
+                <h5>Tổng tiền: {{TongTien | number}}</h5>
+                </div>
+            </div>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-hero-success" (click)="addNote()">Tạo phiếu</button>
+                </div>
+                </div>
+        </nb-card-footer>
+        </nb-card>
+    </div>
+    <div class="col-md-6">
+       <nb-card>
+            <nb-card-header>Tạo phiếu xuất kho Excel</nb-card-header>
+            <nb-card-body>
+                <div class="form-group">
+                    <div class="drop-container" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+                    </div>
+                    
+                    <label class="upload-button">
+                    <input type="file" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+                    
+                    </label>
+                    <button type="button" class="start-upload-btn btn btn-success btn-xs" (click)="startUpload()">
+                        Tải file lên
+                    </button>
+                </div>
+                <ng2-smart-table [settings]="settings1" [source]="listExcel" (userRowSelect)="clickRow($event)"></ng2-smart-table>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-hero-success" (click)="addNoteExcel()">Tạo phiếu</button>
+                    </div>
+                    </div>
+            </nb-card-footer>
+        </nb-card>
+    </div>
+    
+</div>
+ 

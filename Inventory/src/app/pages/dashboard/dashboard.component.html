@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-6">
+      <nb-card>
+          <nb-card-header>Báo cáo tồn kho </nb-card-header>
+          <nb-card-body>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                    <select class="form-control" (change)="selectFromWarehouseHandler($event)">
+                      <option>--Từ kho--</option>
+                        <option *ngFor="let item of listWarehouse" value= {{item.Id}}>
+                          {{item.Name}}
+                        </option>
+                    </select>
+                  </div>
+                <div class="col-md-6">
+                    <input nbInput placeholder="Từ ngày ---- Đến ngày" [nbDatepicker]="rangepicker" class="form-control">
+                    <nb-rangepicker (rangeChange)="pickerDate($event)" format="MM.dd.yyyy" #rangepicker  ></nb-rangepicker>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <ng2-smart-table [settings]="settings" [source]="list" ></ng2-smart-table>  
+            </div>
+          </nb-card-body>
+        </nb-card>
+  </div>
+  <div class="col-md-6">
+      <nb-card>
+          <nb-card-header>Báo cáo công nợ - ({{this.TongNo | number}})</nb-card-header>
+          <nb-card-body>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <input nbInput placeholder="Từ ngày ---- Đến ngày" [nbDatepicker]="rangepicker1" class="form-control">
+                  <nb-rangepicker (rangeChange)="pickerDate1($event)" format="MM.dd.yyyy" #rangepicker1  ></nb-rangepicker>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                
+            </div>
+            <div class="form-group">
+              <ng2-smart-table [settings]="debtReport" [source]="debt"></ng2-smart-table>  
+            </div>
+          </nb-card-body>
+        </nb-card>
+    </div>
+</div>
